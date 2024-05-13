@@ -7,19 +7,12 @@
 
 import Foundation
 
-protocol WorkoutTrackerProtocol {
-    var isTracking: Bool { get set }
-    func startTracking()
-    func stopTracking()
-    var sfSymbolImage: String { get }
-}
-
-// Abstraction of the view model that can be sent to FitnessDetailsView
+// Abstraction of the view model that can be sent to WorkoutDetailView
 class WorkoutDetailViewModel: ObservableObject {
-    @Published var workoutTracker: any WorkoutTracker
+    @Published var workoutTracker: WorkoutTracker
     private var timer: Timer?
     
-    init(workoutTracker: any WorkoutTracker) {
+    init(workoutTracker: WorkoutTracker) {
         self.workoutTracker = workoutTracker
     }
     

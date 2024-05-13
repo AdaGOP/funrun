@@ -63,14 +63,10 @@
 		466E9C582BF1B1BA00533577 /* funrun */ = {
 			isa = PBXGroup;
 			children = (
+				466E9C752BF2108F00533577 /* View */,
+				466E9C742BF2108800533577 /* ViewModel */,
+				466E9C732BF2103000533577 /* Helper */,
 				466E9C592BF1B1BA00533577 /* funrunApp.swift */,
-				466E9C5B2BF1B1BA00533577 /* ContentView.swift */,
-				466E9C672BF1B1F800533577 /* DurationCounter.swift */,
-				466E9C692BF1B23900533577 /* WorkoutCardView.swift */,
-				466E9C6B2BF1B45400533577 /* WorkoutDetailView.swift */,
-				466E9C6D2BF1B47600533577 /* WorkoutDetailViewModel.swift */,
-				466E9C6F2BF1B48900533577 /* WorkoutTracker.swift */,
-				466E9C712BF1CC0300533577 /* CardBackground.swift */,
 				466E9C5D2BF1B1BC00533577 /* Assets.xcassets */,
 				466E9C5F2BF1B1BC00533577 /* Preview Content */,
 			);
@@ -83,6 +79,34 @@
 				466E9C602BF1B1BC00533577 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		466E9C732BF2103000533577 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				466E9C672BF1B1F800533577 /* DurationCounter.swift */,
+				466E9C712BF1CC0300533577 /* CardBackground.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		466E9C742BF2108800533577 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				466E9C6D2BF1B47600533577 /* WorkoutDetailViewModel.swift */,
+				466E9C6F2BF1B48900533577 /* WorkoutTracker.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		466E9C752BF2108F00533577 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				466E9C5B2BF1B1BA00533577 /* ContentView.swift */,
+				466E9C692BF1B23900533577 /* WorkoutCardView.swift */,
+				466E9C6B2BF1B45400533577 /* WorkoutDetailView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

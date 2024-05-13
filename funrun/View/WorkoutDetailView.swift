@@ -19,20 +19,7 @@ struct MovementMetric {
     var unit: String
 }
 
-extension DistanceMetric: CustomStringConvertible {
-    var description: String {
-        let formattedValue = String(format: "%.2f", value)
-        return "\(name): \(formattedValue) \(unit)"
-    }
-}
-
-extension MovementMetric: CustomStringConvertible {
-    var description: String {
-        return "\(movement): \(numOfSet) \(unit)"
-    }
-}
-
-// SwiftUI view that uses the FitnessDetailsViewModel
+// SwiftUI view that uses the WorkoutDetailViewModel
 struct WorkoutDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var viewModel: WorkoutDetailViewModel
@@ -87,5 +74,26 @@ struct WorkoutDetailView: View {
                 isAnimating.toggle()
             }
         }
+    }
+}
+
+extension DistanceMetric: CustomStringConvertible {
+    var description: String {
+        let formattedValue = String(format: "%.2f", value)
+        return "\(name): \(formattedValue) \(unit)"
+    }
+}
+
+extension MovementMetric: CustomStringConvertible {
+    var description: String {
+        return "\(movement): \(numOfSet) \(unit)"
+    }
+}
+
+
+struct WorkoutDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        let runningViewModel = RunningViewModel()
+        WorkoutDetailView(viewModel: WorkoutDetailViewModel(workoutTracker: runningViewModel))
     }
 }
