@@ -1,0 +1,373 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		466E9C5A2BF1B1BA00533577 /* funrunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E9C592BF1B1BA00533577 /* funrunApp.swift */; };
+		466E9C5C2BF1B1BA00533577 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E9C5B2BF1B1BA00533577 /* ContentView.swift */; };
+		466E9C5E2BF1B1BC00533577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 466E9C5D2BF1B1BC00533577 /* Assets.xcassets */; };
+		466E9C612BF1B1BC00533577 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 466E9C602BF1B1BC00533577 /* Preview Assets.xcassets */; };
+		466E9C682BF1B1F800533577 /* DurationCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E9C672BF1B1F800533577 /* DurationCounter.swift */; };
+		466E9C6A2BF1B23900533577 /* WorkoutCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E9C692BF1B23900533577 /* WorkoutCardView.swift */; };
+		466E9C6C2BF1B45400533577 /* WorkoutDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E9C6B2BF1B45400533577 /* WorkoutDetailView.swift */; };
+		466E9C6E2BF1B47600533577 /* WorkoutDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E9C6D2BF1B47600533577 /* WorkoutDetailViewModel.swift */; };
+		466E9C702BF1B48900533577 /* WorkoutTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E9C6F2BF1B48900533577 /* WorkoutTracker.swift */; };
+		466E9C722BF1CC0300533577 /* CardBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E9C712BF1CC0300533577 /* CardBackground.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		466E9C562BF1B1BA00533577 /* funrun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = funrun.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		466E9C592BF1B1BA00533577 /* funrunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = funrunApp.swift; sourceTree = "<group>"; };
+		466E9C5B2BF1B1BA00533577 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		466E9C5D2BF1B1BC00533577 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		466E9C602BF1B1BC00533577 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		466E9C672BF1B1F800533577 /* DurationCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationCounter.swift; sourceTree = "<group>"; };
+		466E9C692BF1B23900533577 /* WorkoutCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCardView.swift; sourceTree = "<group>"; };
+		466E9C6B2BF1B45400533577 /* WorkoutDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailView.swift; sourceTree = "<group>"; };
+		466E9C6D2BF1B47600533577 /* WorkoutDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewModel.swift; sourceTree = "<group>"; };
+		466E9C6F2BF1B48900533577 /* WorkoutTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTracker.swift; sourceTree = "<group>"; };
+		466E9C712BF1CC0300533577 /* CardBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBackground.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		466E9C532BF1B1BA00533577 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		466E9C4D2BF1B1BA00533577 = {
+			isa = PBXGroup;
+			children = (
+				466E9C582BF1B1BA00533577 /* funrun */,
+				466E9C572BF1B1BA00533577 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		466E9C572BF1B1BA00533577 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				466E9C562BF1B1BA00533577 /* funrun.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		466E9C582BF1B1BA00533577 /* funrun */ = {
+			isa = PBXGroup;
+			children = (
+				466E9C592BF1B1BA00533577 /* funrunApp.swift */,
+				466E9C5B2BF1B1BA00533577 /* ContentView.swift */,
+				466E9C672BF1B1F800533577 /* DurationCounter.swift */,
+				466E9C692BF1B23900533577 /* WorkoutCardView.swift */,
+				466E9C6B2BF1B45400533577 /* WorkoutDetailView.swift */,
+				466E9C6D2BF1B47600533577 /* WorkoutDetailViewModel.swift */,
+				466E9C6F2BF1B48900533577 /* WorkoutTracker.swift */,
+				466E9C712BF1CC0300533577 /* CardBackground.swift */,
+				466E9C5D2BF1B1BC00533577 /* Assets.xcassets */,
+				466E9C5F2BF1B1BC00533577 /* Preview Content */,
+			);
+			path = funrun;
+			sourceTree = "<group>";
+		};
+		466E9C5F2BF1B1BC00533577 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				466E9C602BF1B1BC00533577 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		466E9C552BF1B1BA00533577 /* funrun */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 466E9C642BF1B1BC00533577 /* Build configuration list for PBXNativeTarget "funrun" */;
+			buildPhases = (
+				466E9C522BF1B1BA00533577 /* Sources */,
+				466E9C532BF1B1BA00533577 /* Frameworks */,
+				466E9C542BF1B1BA00533577 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = funrun;
+			productName = funrun;
+			productReference = 466E9C562BF1B1BA00533577 /* funrun.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		466E9C4E2BF1B1BA00533577 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					466E9C552BF1B1BA00533577 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+				};
+			};
+			buildConfigurationList = 466E9C512BF1B1BA00533577 /* Build configuration list for PBXProject "funrun" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 466E9C4D2BF1B1BA00533577;
+			productRefGroup = 466E9C572BF1B1BA00533577 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				466E9C552BF1B1BA00533577 /* funrun */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		466E9C542BF1B1BA00533577 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				466E9C612BF1B1BC00533577 /* Preview Assets.xcassets in Resources */,
+				466E9C5E2BF1B1BC00533577 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		466E9C522BF1B1BA00533577 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				466E9C6A2BF1B23900533577 /* WorkoutCardView.swift in Sources */,
+				466E9C722BF1CC0300533577 /* CardBackground.swift in Sources */,
+				466E9C6E2BF1B47600533577 /* WorkoutDetailViewModel.swift in Sources */,
+				466E9C6C2BF1B45400533577 /* WorkoutDetailView.swift in Sources */,
+				466E9C5C2BF1B1BA00533577 /* ContentView.swift in Sources */,
+				466E9C5A2BF1B1BA00533577 /* funrunApp.swift in Sources */,
+				466E9C682BF1B1F800533577 /* DurationCounter.swift in Sources */,
+				466E9C702BF1B48900533577 /* WorkoutTracker.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		466E9C622BF1B1BC00533577 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		466E9C632BF1B1BC00533577 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		466E9C652BF1B1BC00533577 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"funrun/Preview Content\"";
+				DEVELOPMENT_TEAM = GD8VREVBA4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidgun.funrun;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		466E9C662BF1B1BC00533577 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"funrun/Preview Content\"";
+				DEVELOPMENT_TEAM = GD8VREVBA4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.davidgun.funrun;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		466E9C512BF1B1BA00533577 /* Build configuration list for PBXProject "funrun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				466E9C622BF1B1BC00533577 /* Debug */,
+				466E9C632BF1B1BC00533577 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		466E9C642BF1B1BC00533577 /* Build configuration list for PBXNativeTarget "funrun" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				466E9C652BF1B1BC00533577 /* Debug */,
+				466E9C662BF1B1BC00533577 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 466E9C4E2BF1B1BA00533577 /* Project object */;
+}
