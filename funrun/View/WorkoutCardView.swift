@@ -14,15 +14,15 @@ struct WorkoutCardView: View {
     var body: some View {
         VStack{
             HStack{
-                Image(systemName: viewModel.workoutTracker.sfSymbolImage)
+                Image(systemName: viewModel.symbolImage)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 50, height:100)
                     .padding()
                 
                 if #available(iOS 17.0, *) {
-                    Image(systemName: viewModel.workoutTracker.isTracking ? "stopwatch" : "stopwatch.fill")
-                        .symbolEffect(.pulse, options: viewModel.workoutTracker.isTracking ? .repeating : .nonRepeating, value: viewModel.workoutTracker.isTracking)
+                    Image(systemName: viewModel.trackingState ? "stopwatch" : "stopwatch.fill")
+                        .symbolEffect(.pulse, options: viewModel.trackingState ? .repeating : .nonRepeating, value: viewModel.trackingState)
                         .font(.title)
                         .padding()
                 } else {
@@ -31,21 +31,21 @@ struct WorkoutCardView: View {
                 
                 Button(action: {
                     viewModel.toggleTracking()
-                    if viewModel.workoutTracker.isTracking {
+                    if viewModel.trackingState {
                         isShowing = true
                     }
                 }) {
-                    Text(viewModel.workoutTracker.isTracking ? "Stop \(viewModel.workoutTracker.title)" : "Start \(viewModel.workoutTracker.title)")
+                    Text(viewModel.trackingState ? "Stop \(viewModel.workoutTitle)" : "Start \(viewModel.workoutTitle)")
                         .frame(width: 140)
                         .font(.headline)
                         .padding()
-                        .background(viewModel.workoutTracker.isTracking ? Color.red : Color.green)
+                        .background(viewModel.trackingState ? Color.red : Color.green)
                         .foregroundColor(.white)
                         .cornerRadius(10)
-                        
+                    
                 }
             }
-            Text("\(viewModel.workoutTracker.durationCounter.hours):\(viewModel.workoutTracker.durationCounter.minutes):\(viewModel.workoutTracker.durationCounter.seconds)")
+            Text(viewModel.getDuration())
                 .font(.title3)
         }
         .padding(.horizontal, 10)

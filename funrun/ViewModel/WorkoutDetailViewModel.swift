@@ -10,10 +10,21 @@ import Foundation
 // Abstraction of the view model that can be sent to WorkoutDetailView
 class WorkoutDetailViewModel: ObservableObject {
     @Published var workoutTracker: WorkoutTracker
-    private var timer: Timer?
     
     init(workoutTracker: WorkoutTracker) {
         self.workoutTracker = workoutTracker
+    }
+    
+    var trackingState: Bool {
+        return workoutTracker.isTracking
+    }
+    
+    var symbolImage: String {
+        return workoutTracker.sfSymbolImage
+    }
+    
+    var workoutTitle: String {
+        return workoutTracker.title
     }
     
     var distanceInKm: Double {
@@ -38,5 +49,9 @@ class WorkoutDetailViewModel: ObservableObject {
         } else {
             workoutTracker.startTracking()
         }
+    }
+    
+    func getDuration() -> String {
+        return "\(workoutTracker.durationCounter.hours):\(workoutTracker.durationCounter.minutes):\(workoutTracker.durationCounter.seconds)"
     }
 }

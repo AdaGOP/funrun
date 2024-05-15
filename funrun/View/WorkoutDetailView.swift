@@ -6,19 +6,6 @@
 //
 
 import SwiftUI
-
-struct DistanceMetric {
-    var name: String
-    var value: Double
-    var unit: String
-}
-
-struct MovementMetric {
-    var movement: String
-    var numOfSet: Int
-    var unit: String
-}
-
 // SwiftUI view that uses the WorkoutDetailViewModel
 struct WorkoutDetailView: View {
     @Environment(\.dismiss) private var dismiss
@@ -27,13 +14,13 @@ struct WorkoutDetailView: View {
     
     var body: some View {
         Group{
-            Text(viewModel.workoutTracker.title)
+            Text(viewModel.workoutTitle)
                 .font(.title)
             Group{
                 HStack{
                     VStack{
                         if #available(iOS 17.0, *) {
-                            Image(systemName: viewModel.workoutTracker.isTracking ? "stopwatch" : "stopwatch.fill")
+                            Image(systemName: viewModel.trackingState ? "stopwatch" : "stopwatch.fill")
                                 .resizable()
                                 .symbolEffect(.pulse, options: .repeating, value: isAnimating)
                                 .scaledToFit()
@@ -42,7 +29,7 @@ struct WorkoutDetailView: View {
                         } else {
                             // Fallback on earlier versions
                         }
-                        Text("\(viewModel.workoutTracker.durationCounter.hours):\(viewModel.workoutTracker.durationCounter.minutes):\(viewModel.workoutTracker.durationCounter.seconds)")
+                        Text(viewModel.getDuration())
                             .font(.title3)
                     }
                     VStack(alignment:.leading) {
@@ -59,7 +46,7 @@ struct WorkoutDetailView: View {
                             viewModel.toggleTracking()
                             dismiss()
                         }) {
-                            Text(viewModel.workoutTracker.isTracking ? "Stop Tracking" : "Start Tracking")
+                            Text(viewModel.trackingState ? "Stop Tracking" : "Start Tracking")
                                 .font(.headline)
                                 .padding()
                                 .background(Color.red)
@@ -68,25 +55,12 @@ struct WorkoutDetailView: View {
                         }
                     }
                 }
-            }.onAppear{
+            }.onAppear {
                 isAnimating.toggle()
-            }.onDisappear(){
+            }.onDisappear() {
                 isAnimating.toggle()
             }
         }
-    }
-}
-
-extension DistanceMetric: CustomStringConvertible {
-    var description: String {
-        let formattedValue = String(format: "%.2f", value)
-        return "\(name): \(formattedValue) \(unit)"
-    }
-}
-
-extension MovementMetric: CustomStringConvertible {
-    var description: String {
-        return "\(movement): \(numOfSet) \(unit)"
     }
 }
 

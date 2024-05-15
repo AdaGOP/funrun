@@ -17,6 +17,8 @@
 		466E9C6E2BF1B47600533577 /* WorkoutDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E9C6D2BF1B47600533577 /* WorkoutDetailViewModel.swift */; };
 		466E9C702BF1B48900533577 /* WorkoutTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E9C6F2BF1B48900533577 /* WorkoutTracker.swift */; };
 		466E9C722BF1CC0300533577 /* CardBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E9C712BF1CC0300533577 /* CardBackground.swift */; };
+		46D194BC2BF458B5003D082D /* WorkoutTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D194BB2BF458B5003D082D /* WorkoutTrackerViewModel.swift */; };
+		46D194BE2BF46165003D082D /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D194BD2BF46165003D082D /* Metrics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		466E9C6D2BF1B47600533577 /* WorkoutDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutDetailViewModel.swift; sourceTree = "<group>"; };
 		466E9C6F2BF1B48900533577 /* WorkoutTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTracker.swift; sourceTree = "<group>"; };
 		466E9C712BF1CC0300533577 /* CardBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBackground.swift; sourceTree = "<group>"; };
+		46D194BB2BF458B5003D082D /* WorkoutTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTrackerViewModel.swift; sourceTree = "<group>"; };
+		46D194BD2BF46165003D082D /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 		466E9C582BF1B1BA00533577 /* funrun */ = {
 			isa = PBXGroup;
 			children = (
+				46D194BA2BF45867003D082D /* Model */,
 				466E9C752BF2108F00533577 /* View */,
 				466E9C742BF2108800533577 /* ViewModel */,
 				466E9C732BF2103000533577 /* Helper */,
@@ -94,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				466E9C6D2BF1B47600533577 /* WorkoutDetailViewModel.swift */,
-				466E9C6F2BF1B48900533577 /* WorkoutTracker.swift */,
+				46D194BB2BF458B5003D082D /* WorkoutTrackerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -107,6 +112,15 @@
 				466E9C6B2BF1B45400533577 /* WorkoutDetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		46D194BA2BF45867003D082D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				466E9C6F2BF1B48900533577 /* WorkoutTracker.swift */,
+				46D194BD2BF46165003D082D /* Metrics.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -182,9 +196,11 @@
 				466E9C6A2BF1B23900533577 /* WorkoutCardView.swift in Sources */,
 				466E9C722BF1CC0300533577 /* CardBackground.swift in Sources */,
 				466E9C6E2BF1B47600533577 /* WorkoutDetailViewModel.swift in Sources */,
+				46D194BC2BF458B5003D082D /* WorkoutTrackerViewModel.swift in Sources */,
 				466E9C6C2BF1B45400533577 /* WorkoutDetailView.swift in Sources */,
 				466E9C5C2BF1B1BA00533577 /* ContentView.swift in Sources */,
 				466E9C5A2BF1B1BA00533577 /* funrunApp.swift in Sources */,
+				46D194BE2BF46165003D082D /* Metrics.swift in Sources */,
 				466E9C682BF1B1F800533577 /* DurationCounter.swift in Sources */,
 				466E9C702BF1B48900533577 /* WorkoutTracker.swift in Sources */,
 			);
