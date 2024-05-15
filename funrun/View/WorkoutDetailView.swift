@@ -6,47 +6,47 @@
 //
 
 import SwiftUI
-// SwiftUI view that uses the WorkoutDetailViewModel
+
 struct WorkoutDetailView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: WorkoutDetailViewModel
+    @ObservedObject var tracker: WorkoutTracker
     @State var isAnimating: Bool = false
     
     var body: some View {
-        Group{
-            Text(viewModel.workoutTitle)
+        Group {
+            Text(tracker.title)
                 .font(.title)
-            Group{
-                HStack{
-                    VStack{
+            Group {
+                HStack {
+                    VStack {
                         if #available(iOS 17.0, *) {
-                            Image(systemName: viewModel.trackingState ? "stopwatch" : "stopwatch.fill")
+                            Image(systemName: tracker.isTracking ? "stopwatch" : "stopwatch.fill")
                                 .resizable()
                                 .symbolEffect(.pulse, options: .repeating, value: isAnimating)
                                 .scaledToFit()
-                                .frame(width: 100, height:100)
+                                .frame(width: 100, height: 100)
                                 .padding()
                         } else {
                             // Fallback on earlier versions
                         }
-                        Text(viewModel.getDuration())
+                        Text(tracker.durationCounter.elapsedTime)
                             .font(.title3)
                     }
-                    VStack(alignment:.leading) {
-                        if viewModel.workoutTracker is DistanceTrackable {
-                            Text("\(DistanceMetric(name: "Distance", value: viewModel.distanceInKm, unit: "km"))")
+                    VStack(alignment: .leading) {
+                        if let distanceTrackable = tracker as? DistanceTrackable {
+                            Text("\(DistanceMetric(name: "Distance", value: distanceTrackable.distanceInKm, unit: "km"))")
                         }
-                        if viewModel.workoutTracker is HIITMovementTrackable {
-                            ForEach(viewModel.movementSet.keys.sorted(), id: \.self) { movementKey in
-                                Text("\(MovementMetric(movement: movementKey, numOfSet: viewModel.movementSet[movementKey] ?? 0, unit: "set"))")
+                        if let hiitTrackable = tracker as? HIITTrackable {
+                            ForEach(hiitTrackable.movementSet.keys.sorted(), id: \.self) { movementKey in
+                                Text("\(MovementMetric(movement: movementKey, numOfSet: hiitTrackable.movementSet[movementKey] ?? 0, unit: "set"))")
                             }
                         }
                         
                         Button(action: {
-                            viewModel.toggleTracking()
+                            tracker.toggleTracking()
                             dismiss()
                         }) {
-                            Text(viewModel.trackingState ? "Stop Tracking" : "Start Tracking")
+                            Text(tracker.isTracking ? "Stop Tracking" : "Start Tracking")
                                 .font(.headline)
                                 .padding()
                                 .background(Color.red)
@@ -55,19 +55,20 @@ struct WorkoutDetailView: View {
                         }
                     }
                 }
-            }.onAppear {
+            }
+            .onAppear {
                 isAnimating.toggle()
-            }.onDisappear() {
+            }
+            .onDisappear {
                 isAnimating.toggle()
             }
         }
     }
 }
 
-
 struct WorkoutDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let hiitViewModel = HIITViewModel()
-        WorkoutDetailView(viewModel: WorkoutDetailViewModel(workoutTracker: hiitViewModel))
+        let hiitTracker = HIITTracker()
+        WorkoutDetailView(tracker: hiitTracker)
     }
 }

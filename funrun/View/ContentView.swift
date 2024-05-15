@@ -8,33 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var runningViewModel = RunningViewModel()
-    @StateObject var walkingViewModel = WalkingViewModel()
-    @StateObject var hiitViewModel = HIITViewModel()
+    @StateObject var runningTracker = RunningTracker()
+    @StateObject var walkingTracker = WalkingTracker()
+    @StateObject var hiitTracker = HIITTracker()
     @State private var isShowingDetails = false
     
     var body: some View {
         NavigationView {
             VStack {
-                WorkoutCardView(viewModel: WorkoutDetailViewModel(workoutTracker: runningViewModel),
-                                isShowing: $isShowingDetails)
-                WorkoutCardView(viewModel: WorkoutDetailViewModel(workoutTracker: walkingViewModel),
-                                isShowing: $isShowingDetails)
-                WorkoutCardView(viewModel: WorkoutDetailViewModel(workoutTracker: hiitViewModel),
-                                isShowing: $isShowingDetails)
+                WorkoutCardView(tracker: runningTracker, isShowing: $isShowingDetails)
+                WorkoutCardView(tracker: walkingTracker, isShowing: $isShowingDetails)
+                WorkoutCardView(tracker: hiitTracker, isShowing: $isShowingDetails)
             }
             .navigationTitle("Exercises")
             
         }.sheet(isPresented: $isShowingDetails, onDismiss: didDismiss, content: {
             List {
-                if runningViewModel.isTracking {
-                    WorkoutDetailView(viewModel: WorkoutDetailViewModel(workoutTracker: runningViewModel))
+                if runningTracker.isTracking {
+                    WorkoutDetailView(tracker: runningTracker)
                 }
-                if walkingViewModel.isTracking {
-                    WorkoutDetailView(viewModel: WorkoutDetailViewModel(workoutTracker: walkingViewModel))
+                if walkingTracker.isTracking {
+                    WorkoutDetailView(tracker: walkingTracker)
                 }
-                if hiitViewModel.isTracking {
-                    WorkoutDetailView(viewModel: WorkoutDetailViewModel(workoutTracker: hiitViewModel))
+                if hiitTracker.isTracking {
+                    WorkoutDetailView(tracker: hiitTracker)
                 }
             }
         })
@@ -43,6 +40,12 @@ struct ContentView: View {
     func didDismiss(){
         isShowingDetails = false
         print("caller page processing dismiss")
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
     }
 }
 #Preview {
