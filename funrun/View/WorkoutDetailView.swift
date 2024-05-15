@@ -67,7 +67,7 @@ struct WorkoutDetailView: View {
 
 struct WorkoutDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let runningViewModel = RunningViewModel()
-        WorkoutDetailView(viewModel: WorkoutDetailViewModel(workoutTracker: runningViewModel))
+        let hiitViewModel = HIITViewModel()
+        WorkoutDetailView(viewModel: WorkoutDetailViewModel(workoutTracker: hiitViewModel))
     }
 }

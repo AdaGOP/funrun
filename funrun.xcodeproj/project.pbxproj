@@ -98,8 +98,8 @@
 		466E9C742BF2108800533577 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				466E9C6D2BF1B47600533577 /* WorkoutDetailViewModel.swift */,
 				46D194BB2BF458B5003D082D /* WorkoutTrackerViewModel.swift */,
+				466E9C6D2BF1B47600533577 /* WorkoutDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";

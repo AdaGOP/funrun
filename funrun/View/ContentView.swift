@@ -16,9 +16,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                WorkoutCardView(viewModel: WorkoutDetailViewModel(workoutTracker: runningViewModel) , isShowing: $isShowingDetails)
-                WorkoutCardView(viewModel: WorkoutDetailViewModel(workoutTracker: walkingViewModel), isShowing: $isShowingDetails)
-                WorkoutCardView(viewModel: WorkoutDetailViewModel(workoutTracker: hiitViewModel), isShowing: $isShowingDetails)
+                WorkoutCardView(viewModel: WorkoutDetailViewModel(workoutTracker: runningViewModel),
+                                isShowing: $isShowingDetails)
+                WorkoutCardView(viewModel: WorkoutDetailViewModel(workoutTracker: walkingViewModel),
+                                isShowing: $isShowingDetails)
+                WorkoutCardView(viewModel: WorkoutDetailViewModel(workoutTracker: hiitViewModel),
+                                isShowing: $isShowingDetails)
             }
             .navigationTitle("Exercises")
             
