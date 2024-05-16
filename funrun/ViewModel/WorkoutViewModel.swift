@@ -12,15 +12,33 @@ class WorkoutViewModel: ObservableObject {
     @Published var durationCounter: DurationCounter = DurationCounter()
     
     var tracker: WorkoutTracker
-    var title: String
-    var sfSymbolImage: String
     
     private var timer: Timer?
     
-    init(tracker: WorkoutTracker, title: String, sfSymbolImage: String) {
+    init(tracker: WorkoutTracker) {
         self.tracker = tracker
-        self.title = title
-        self.sfSymbolImage = sfSymbolImage
+    }
+    
+    var title: String {
+        tracker.title
+    }
+    
+    var sfSymbolImage: String {
+        tracker.sfSymbolImage
+    }
+    
+    var distanceInKm: Double {
+        if let distanceTrackable = tracker as? DistanceTrackable {
+            return distanceTrackable.distanceInKm
+        }
+        return 0.0
+    }
+    
+    var movementSet: [String: Int] {
+        if let hiitTrackable = tracker as? HIITTrackable {
+            return hiitTrackable.movementSet
+        }
+        return [:]
     }
     
     func toggleTracking() {
@@ -34,13 +52,12 @@ class WorkoutViewModel: ObservableObject {
     private func startTracking() {
         isTracking = true
         startTimer()
-        tracker.startTracking()
+        updateTrackerData()
     }
     
     private func stopTracking() {
         isTracking = false
         stopTimer()
-        tracker.stopTracking()
     }
     
     private func startTimer() {
@@ -54,5 +71,20 @@ class WorkoutViewModel: ObservableObject {
         self.timer?.invalidate()
         self.timer = nil
         durationCounter.startTime = nil
+    }
+    
+    private func updateTrackerData() {
+        switch tracker {
+        case let runningTracker as RunningTracker:
+            runningTracker.distanceInKm += 1.5
+        case let walkingTracker as WalkingTracker:
+            walkingTracker.distanceInKm += 1.5
+        case let hiitTracker as HIITTracker:
+            hiitTracker.movementSet["Jumping-Jack"]! += 1
+            hiitTracker.movementSet["Sit-Up"]! += 1
+            hiitTracker.movementSet["Push-Up"]! += 1
+        default:
+            break
+        }
     }
 }

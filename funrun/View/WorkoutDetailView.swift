@@ -33,13 +33,9 @@ struct WorkoutDetailView: View {
                             .font(.title3)
                     }
                     VStack(alignment: .leading) {
-                        if let distanceTrackable = viewModel as? DistanceTrackable {
-                            Text("\(DistanceMetric(name: "Distance", value: distanceTrackable.distanceInKm, unit: "km"))")
-                        }
-                        if let hiitTrackable = viewModel as? HIITTrackable {
-                            ForEach(hiitTrackable.movementSet.keys.sorted(), id: \.self) { movementKey in
-                                Text("\(MovementMetric(movement: movementKey, numOfSet: hiitTrackable.movementSet[movementKey] ?? 0, unit: "set"))")
-                            }
+                        Text("\(DistanceMetric(name: "Distance", value: viewModel.distanceInKm, unit: "km"))")
+                        ForEach(viewModel.movementSet.keys.sorted(), id: \.self) { movementKey in
+                            Text("\(MovementMetric(movement: movementKey, numOfSet: viewModel.movementSet[movementKey] ?? 0, unit: "set"))")
                         }
                         
                         Button(action: {
@@ -69,6 +65,8 @@ struct WorkoutDetailView: View {
 struct WorkoutDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let hiitTracker = HIITTracker()
-        WorkoutDetailView(viewModel: WorkoutViewModel(tracker: hiitTracker, title: "HIIT", sfSymbolImage: "figure.highintensity.intervaltraining"))
+        hiitTracker.title = "HIIT"
+        hiitTracker.sfSymbolImage = "figure.highintensity.intervaltraining"
+        return WorkoutDetailView(viewModel: WorkoutViewModel(tracker: hiitTracker))
     }
 }

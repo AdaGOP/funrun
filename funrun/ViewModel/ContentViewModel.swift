@@ -8,11 +8,28 @@
 import Foundation
 
 class ContentViewModel: ObservableObject {
-    @Published var runningTracker = WorkoutViewModel(tracker: RunningTracker(), title: "Running", sfSymbolImage: "figure.run")
-    @Published var walkingTracker = WorkoutViewModel(tracker: WalkingTracker(), title: "Walking", sfSymbolImage: "figure.walk")
-    @Published var hiitTracker = WorkoutViewModel(tracker: HIITTracker(), title: "HIIT", sfSymbolImage: "figure.highintensity.intervaltraining")
+    @Published var runningTracker: WorkoutViewModel
+    @Published var walkingTracker: WorkoutViewModel
+    @Published var hiitTracker: WorkoutViewModel
     
     @Published var isShowingDetails = false
+    
+    init() {
+        let runningTracker = RunningTracker()
+        runningTracker.title = "Running"
+        runningTracker.sfSymbolImage = "figure.run"
+        self.runningTracker = WorkoutViewModel(tracker: runningTracker)
+        
+        let walkingTracker = WalkingTracker()
+        walkingTracker.title = "Walking"
+        walkingTracker.sfSymbolImage = "figure.walk"
+        self.walkingTracker = WorkoutViewModel(tracker: walkingTracker)
+        
+        let hiitTracker = HIITTracker()
+        hiitTracker.title = "HIIT"
+        hiitTracker.sfSymbolImage = "figure.highintensity.intervaltraining"
+        self.hiitTracker = WorkoutViewModel(tracker: hiitTracker)
+    }
     
     func didDismiss() {
         isShowingDetails = false

@@ -56,6 +56,8 @@ struct WorkoutCardView: View {
 struct WorkoutCardView_Previews: PreviewProvider {
     static var previews: some View {
         let hiitTracker = HIITTracker()
-        return WorkoutCardView(viewModel: WorkoutViewModel(tracker: hiitTracker, title: "HIIT", sfSymbolImage: "figure.highintensity.intervaltraining"), isShowing: .constant(false))
+        hiitTracker.title = "HIIT"
+        hiitTracker.sfSymbolImage = "figure.highintensity.intervaltraining"
+        return WorkoutCardView(viewModel: WorkoutViewModel(tracker: hiitTracker), isShowing: .constant(false))
     }
 }
