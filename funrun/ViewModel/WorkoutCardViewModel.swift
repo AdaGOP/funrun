@@ -10,11 +10,15 @@ import Combine
 
 class WorkoutCardViewModel: ObservableObject {
     @Published var tracker: WorkoutTracker
+    var title: String
+    var sfSymbolImage: String
     
     private var cancellables = Set<AnyCancellable>()
     
-    init(tracker: WorkoutTracker) {
+    init(tracker: WorkoutTracker, title: String, sfSymbolImage: String) {
         self.tracker = tracker
+        self.title = title
+        self.sfSymbolImage = sfSymbolImage
         
         tracker.objectWillChange
             .sink { [weak self] _ in

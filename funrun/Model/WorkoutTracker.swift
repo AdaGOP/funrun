@@ -57,12 +57,6 @@ protocol HIITTrackable {
 class RunningTracker: WorkoutTracker, DistanceTrackable {
     var distanceInKm: Double = 0.0
     
-    override init() {
-        super.init()
-        title = "Running"
-        sfSymbolImage = "figure.run"
-    }
-    
     override func startTracking() {
         super.startTracking()
         distanceInKm += 1.5
@@ -72,12 +66,6 @@ class RunningTracker: WorkoutTracker, DistanceTrackable {
 class WalkingTracker: WorkoutTracker, DistanceTrackable {
     var distanceInKm: Double = 0.0
     
-    override init() {
-        super.init()
-        title = "Walking"
-        sfSymbolImage = "figure.walk"
-    }
-    
     override func startTracking() {
         super.startTracking()
         distanceInKm += 1.5
@@ -86,12 +74,6 @@ class WalkingTracker: WorkoutTracker, DistanceTrackable {
 
 class HIITTracker: WorkoutTracker, HIITTrackable {
     var movementSet: [String: Int] = ["Jumping-Jack": 0, "Sit-Up": 0, "Push-Up": 0]
-    
-    override init() {
-        super.init()
-        title = "HIIT"
-        sfSymbolImage = "figure.highintensity.intervaltraining"
-    }
     
     override func startTracking() {
         super.startTracking()

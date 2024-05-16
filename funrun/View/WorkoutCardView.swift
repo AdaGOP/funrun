@@ -14,7 +14,7 @@ struct WorkoutCardView: View {
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: viewModel.tracker.sfSymbolImage)
+                Image(systemName: viewModel.sfSymbolImage)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 50, height: 100)
@@ -35,7 +35,7 @@ struct WorkoutCardView: View {
                         isShowing = true
                     }
                 }) {
-                    Text(viewModel.tracker.isTracking ? "Stop \(viewModel.tracker.title)" : "Start \(viewModel.tracker.title)")
+                    Text(viewModel.tracker.isTracking ? "Stop \(viewModel.title)" : "Start \(viewModel.title)")
                         .frame(width: 140)
                         .font(.headline)
                         .padding()
@@ -55,7 +55,7 @@ struct WorkoutCardView: View {
 
 struct WorkoutCardView_Previews: PreviewProvider {
     static var previews: some View {
-        let runningTracker = RunningTracker()
-        return WorkoutCardView(viewModel: WorkoutCardViewModel(tracker: runningTracker), isShowing: .constant(false))
+        let hiitTracker = HIITTracker()
+        return WorkoutCardView(viewModel: WorkoutCardViewModel(tracker: hiitTracker, title: "HIIT", sfSymbolImage: "figure.highintensity.intervaltraining"), isShowing: .constant(false))
     }
 }

@@ -22,13 +22,13 @@ struct ContentView: View {
         }.sheet(isPresented: $viewModel.isShowingDetails, onDismiss: viewModel.didDismiss, content: {
             List {
                 if viewModel.runningTracker.tracker.isTracking {
-                    WorkoutDetailView(viewModel: WorkoutDetailViewModel(tracker: viewModel.runningTracker.tracker))
+                    WorkoutDetailView(viewModel: WorkoutDetailViewModel(tracker: viewModel.runningTracker.tracker, title: viewModel.runningTracker.title, sfSymbolImage: viewModel.runningTracker.sfSymbolImage))
                 }
                 if viewModel.walkingTracker.tracker.isTracking {
-                    WorkoutDetailView(viewModel: WorkoutDetailViewModel(tracker: viewModel.walkingTracker.tracker))
+                    WorkoutDetailView(viewModel: WorkoutDetailViewModel(tracker: viewModel.walkingTracker.tracker, title: viewModel.walkingTracker.title, sfSymbolImage: viewModel.walkingTracker.sfSymbolImage))
                 }
                 if viewModel.hiitTracker.tracker.isTracking {
-                    WorkoutDetailView(viewModel: WorkoutDetailViewModel(tracker: viewModel.hiitTracker.tracker))
+                    WorkoutDetailView(viewModel: WorkoutDetailViewModel(tracker: viewModel.hiitTracker.tracker, title: viewModel.hiitTracker.title, sfSymbolImage: viewModel.hiitTracker.sfSymbolImage))
                 }
             }
         })

@@ -14,7 +14,7 @@ struct WorkoutDetailView: View {
     
     var body: some View {
         Group {
-            Text(viewModel.tracker.title)
+            Text(viewModel.title)
                 .font(.title)
             Group {
                 HStack {
@@ -69,6 +69,6 @@ struct WorkoutDetailView: View {
 struct WorkoutDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let hiitTracker = HIITTracker()
-        WorkoutDetailView(viewModel: WorkoutDetailViewModel(tracker: hiitTracker))
+        WorkoutDetailView(viewModel: WorkoutDetailViewModel(tracker: hiitTracker, title: "HIIT", sfSymbolImage: "figure.highintensity.intervaltraining"))
     }
 }
