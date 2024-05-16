@@ -9,18 +9,18 @@ import SwiftUI
 
 struct WorkoutDetailView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var tracker: WorkoutTracker
+    @StateObject var viewModel: WorkoutDetailViewModel
     @State var isAnimating: Bool = false
     
     var body: some View {
         Group {
-            Text(tracker.title)
+            Text(viewModel.tracker.title)
                 .font(.title)
             Group {
                 HStack {
                     VStack {
                         if #available(iOS 17.0, *) {
-                            Image(systemName: tracker.isTracking ? "stopwatch" : "stopwatch.fill")
+                            Image(systemName: viewModel.tracker.isTracking ? "stopwatch" : "stopwatch.fill")
                                 .resizable()
                                 .symbolEffect(.pulse, options: .repeating, value: isAnimating)
                                 .scaledToFit()
@@ -29,24 +29,24 @@ struct WorkoutDetailView: View {
                         } else {
                             // Fallback on earlier versions
                         }
-                        Text(tracker.durationCounter.elapsedTime)
+                        Text(viewModel.tracker.durationCounter.elapsedTime)
                             .font(.title3)
                     }
                     VStack(alignment: .leading) {
-                        if let distanceTrackable = tracker as? DistanceTrackable {
+                        if let distanceTrackable = viewModel.tracker as? DistanceTrackable {
                             Text("\(DistanceMetric(name: "Distance", value: distanceTrackable.distanceInKm, unit: "km"))")
                         }
-                        if let hiitTrackable = tracker as? HIITTrackable {
+                        if let hiitTrackable = viewModel.tracker as? HIITTrackable {
                             ForEach(hiitTrackable.movementSet.keys.sorted(), id: \.self) { movementKey in
                                 Text("\(MovementMetric(movement: movementKey, numOfSet: hiitTrackable.movementSet[movementKey] ?? 0, unit: "set"))")
                             }
                         }
                         
                         Button(action: {
-                            tracker.toggleTracking()
+                            viewModel.toggleTracking()
                             dismiss()
                         }) {
-                            Text(tracker.isTracking ? "Stop Tracking" : "Start Tracking")
+                            Text(viewModel.tracker.isTracking ? "Stop Tracking" : "Start Tracking")
                                 .font(.headline)
                                 .padding()
                                 .background(Color.red)
@@ -69,6 +69,6 @@ struct WorkoutDetailView: View {
 struct WorkoutDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let hiitTracker = HIITTracker()
-        WorkoutDetailView(tracker: hiitTracker)
+        WorkoutDetailView(viewModel: WorkoutDetailViewModel(tracker: hiitTracker))
     }
 }
