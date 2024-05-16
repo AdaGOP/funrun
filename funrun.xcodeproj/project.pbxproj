@@ -67,8 +67,7 @@
 		466E9C582BF1B1BA00533577 /* funrun */ = {
 			isa = PBXGroup;
 			children = (
-				46C979122BF5B72F00A50E6F /* ContentViewModel.swift */,
-				46C979162BF5BF1100A50E6F /* WorkoutCardViewModel.swift */,
+				46C979182BF5C11900A50E6F /* ViewModel */,
 				46D194BA2BF45867003D082D /* Model */,
 				466E9C752BF2108F00533577 /* View */,
 				466E9C732BF2103000533577 /* Helper */,
@@ -104,6 +103,15 @@
 				466E9C6B2BF1B45400533577 /* WorkoutDetailView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		46C979182BF5C11900A50E6F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				46C979122BF5B72F00A50E6F /* ContentViewModel.swift */,
+				46C979162BF5BF1100A50E6F /* WorkoutCardViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		46D194BA2BF45867003D082D /* Model */ = {
