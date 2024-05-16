@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WorkoutCardView: View {
-    @StateObject var viewModel: WorkoutViewModel
+    @ObservedObject var viewModel: WorkoutViewModel
     @Binding var isShowing: Bool
     
     var body: some View {
@@ -21,8 +21,8 @@ struct WorkoutCardView: View {
                     .padding()
                 
                 if #available(iOS 17.0, *) {
-                    Image(systemName: viewModel.tracker.isTracking ? "stopwatch" : "stopwatch.fill")
-                        .symbolEffect(.pulse, options: viewModel.tracker.isTracking ? .repeating : .nonRepeating, value: viewModel.tracker.isTracking)
+                    Image(systemName: viewModel.isTracking ? "stopwatch" : "stopwatch.fill")
+                        .symbolEffect(.pulse, options: viewModel.isTracking ? .repeating : .nonRepeating, value: viewModel.isTracking)
                         .font(.title)
                         .padding()
                 } else {
@@ -31,20 +31,20 @@ struct WorkoutCardView: View {
                 
                 Button(action: {
                     viewModel.toggleTracking()
-                    if viewModel.tracker.isTracking {
+                    if viewModel.isTracking {
                         isShowing = true
                     }
                 }) {
-                    Text(viewModel.tracker.isTracking ? "Stop \(viewModel.title)" : "Start \(viewModel.title)")
+                    Text(viewModel.isTracking ? "Stop \(viewModel.title)" : "Start \(viewModel.title)")
                         .frame(width: 140)
                         .font(.headline)
                         .padding()
-                        .background(viewModel.tracker.isTracking ? Color.red : Color.green)
+                        .background(viewModel.isTracking ? Color.red : Color.green)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
             }
-            Text(viewModel.tracker.durationCounter.elapsedTime)
+            Text(viewModel.durationCounter.elapsedTime)
                 .font(.title3)
         }
         .padding(.horizontal, 10)

@@ -7,42 +7,25 @@
 
 import Foundation
 
-class WorkoutTracker: ObservableObject {
-    @Published var isTracking: Bool = false
-    @Published var durationCounter: DurationCounter = DurationCounter()
+class WorkoutTracker {
+    var isTracking: Bool = false
     var title: String = ""
     var sfSymbolImage: String = ""
-    private var timer: Timer?
-    
+
     func startTracking() {
         isTracking = true
-        startTimer()
     }
-    
+
     func stopTracking() {
         isTracking = false
-        stopTimer()
     }
-    
+
     func toggleTracking() {
         if isTracking {
             stopTracking()
         } else {
             startTracking()
         }
-    }
-    
-    private func startTimer() {
-        durationCounter.startTime = Date()
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            self.durationCounter.update()
-        }
-    }
-    
-    private func stopTimer() {
-        self.timer?.invalidate()
-        self.timer = nil
-        durationCounter.startTime = nil
     }
 }
 

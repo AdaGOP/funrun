@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WorkoutDetailView: View {
     @Environment(\.dismiss) private var dismiss
-    @StateObject var viewModel: WorkoutViewModel
+    @ObservedObject var viewModel: WorkoutViewModel
     @State var isAnimating: Bool = false
     
     var body: some View {
@@ -20,7 +20,7 @@ struct WorkoutDetailView: View {
                 HStack {
                     VStack {
                         if #available(iOS 17.0, *) {
-                            Image(systemName: viewModel.tracker.isTracking ? "stopwatch" : "stopwatch.fill")
+                            Image(systemName: viewModel.isTracking ? "stopwatch" : "stopwatch.fill")
                                 .resizable()
                                 .symbolEffect(.pulse, options: .repeating, value: isAnimating)
                                 .scaledToFit()
@@ -29,14 +29,14 @@ struct WorkoutDetailView: View {
                         } else {
                             // Fallback on earlier versions
                         }
-                        Text(viewModel.tracker.durationCounter.elapsedTime)
+                        Text(viewModel.durationCounter.elapsedTime)
                             .font(.title3)
                     }
                     VStack(alignment: .leading) {
-                        if let distanceTrackable = viewModel.tracker as? DistanceTrackable {
+                        if let distanceTrackable = viewModel as? DistanceTrackable {
                             Text("\(DistanceMetric(name: "Distance", value: distanceTrackable.distanceInKm, unit: "km"))")
                         }
-                        if let hiitTrackable = viewModel.tracker as? HIITTrackable {
+                        if let hiitTrackable = viewModel as? HIITTrackable {
                             ForEach(hiitTrackable.movementSet.keys.sorted(), id: \.self) { movementKey in
                                 Text("\(MovementMetric(movement: movementKey, numOfSet: hiitTrackable.movementSet[movementKey] ?? 0, unit: "set"))")
                             }
@@ -46,7 +46,7 @@ struct WorkoutDetailView: View {
                             viewModel.toggleTracking()
                             dismiss()
                         }) {
-                            Text(viewModel.tracker.isTracking ? "Stop Tracking" : "Start Tracking")
+                            Text(viewModel.isTracking ? "Stop Tracking" : "Start Tracking")
                                 .font(.headline)
                                 .padding()
                                 .background(Color.red)

@@ -21,13 +21,13 @@ struct ContentView: View {
             
         }.sheet(isPresented: $viewModel.isShowingDetails, onDismiss: viewModel.didDismiss, content: {
             List {
-                if viewModel.runningTracker.tracker.isTracking {
+                if viewModel.runningTracker.isTracking {
                     WorkoutDetailView(viewModel: viewModel.runningTracker)
                 }
-                if viewModel.walkingTracker.tracker.isTracking {
+                if viewModel.walkingTracker.isTracking {
                     WorkoutDetailView(viewModel: viewModel.walkingTracker)
                 }
-                if viewModel.hiitTracker.tracker.isTracking {
+                if viewModel.hiitTracker.isTracking {
                     WorkoutDetailView(viewModel: viewModel.hiitTracker)
                 }
             }
