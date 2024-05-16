@@ -7,78 +7,99 @@
 
 import Foundation
 
-class WorkoutTracker: ObservableObject {
-    @Published var isTracking: Bool = false
-    @Published var durationCounter: DurationCounter = DurationCounter()
-    var title: String = ""
-    var sfSymbolImage: String = ""
-    private var timer: Timer?
+protocol WorkoutTracker {
+    var title: String { get set }
+    var sfSymbolImage: String { get set }
+    func startTracking()
+    func stopTracking()
+}
+
+protocol DistanceTrackable: WorkoutTracker {
+    var distanceInKm: Double { get set }
+    func addDistance(by value: Double)
+}
+
+protocol HIITTrackable: WorkoutTracker {
+    var movementSet: [String: Int] { get set }
+    func addMovementSet(by value: Int)
+}
+
+class RunningTracker: DistanceTrackable, ObservableObject {
+    var title: String
+    
+    var sfSymbolImage: String
+    
+    var distanceInKm: Double = 0.0
+    
+    init(title: String, sfSymbolImage: String, distanceInKm: Double) {
+        self.title = title
+        self.sfSymbolImage = sfSymbolImage
+        self.distanceInKm = distanceInKm
+    }
     
     func startTracking() {
-        isTracking = true
-        startTimer()
+        //specific logic for the startTracking event
     }
     
     func stopTracking() {
-        isTracking = false
-        stopTimer()
+        //specific logic for the stopTracking event
     }
     
-    func toggleTracking() {
-        if isTracking {
-            stopTracking()
-        } else {
-            startTracking()
-        }
+    func addDistance(by value: Double){
+        distanceInKm += value
     }
     
-    private func startTimer() {
-        durationCounter.startTime = Date()
-        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            self.durationCounter.update()
-        }
-    }
+}
+
+class WalkingTracker: DistanceTrackable {
+    var title: String
     
-    private func stopTimer() {
-        self.timer?.invalidate()
-        self.timer = nil
-        durationCounter.startTime = nil
-    }
-}
-
-protocol DistanceTrackable {
-    var distanceInKm: Double { get set }
-}
-
-protocol HIITTrackable {
-    var movementSet: [String: Int] { get set }
-}
-
-class RunningTracker: WorkoutTracker, DistanceTrackable {
+    var sfSymbolImage: String
+    
     var distanceInKm: Double = 0.0
+    init(title: String, sfSymbolImage: String, distanceInKm: Double) {
+        self.title = title
+        self.sfSymbolImage = sfSymbolImage
+        self.distanceInKm = distanceInKm
+    }
     
-    override func startTracking() {
-        super.startTracking()
-        distanceInKm += 1.5
+    func startTracking() {
+        //specific logic for the startTracking event
+    }
+    
+    func stopTracking() {
+        //specific logic for the stopTracking event
+    }
+    
+    func addDistance(by value: Double){
+        distanceInKm += value
     }
 }
 
-class WalkingTracker: WorkoutTracker, DistanceTrackable {
-    var distanceInKm: Double = 0.0
+class HIITTracker: HIITTrackable {
+    var title: String
     
-    override func startTracking() {
-        super.startTracking()
-        distanceInKm += 1.5
-    }
-}
-
-class HIITTracker: WorkoutTracker, HIITTrackable {
+    var sfSymbolImage: String
+    
     var movementSet: [String: Int] = ["Jumping-Jack": 0, "Sit-Up": 0, "Push-Up": 0]
     
-    override func startTracking() {
-        super.startTracking()
-        movementSet["Jumping-Jack"]! += 1
-        movementSet["Sit-Up"]! += 1
-        movementSet["Push-Up"]! += 1
+    init(title: String, sfSymbolImage: String, movementSet: [String : Int]) {
+        self.title = title
+        self.sfSymbolImage = sfSymbolImage
+        self.movementSet = movementSet
+    }
+    
+    func startTracking() {
+        //specific logic for the startTracking event
+    }
+    
+    func stopTracking() {
+        //specific logic for the stopTracking event
+    }
+    
+    func addMovementSet(by value: Int) {
+        movementSet["Jumping-Jack"]! += value
+        movementSet["Sit-Up"]! += value
+        movementSet["Push-Up"]! += value
     }
 }
