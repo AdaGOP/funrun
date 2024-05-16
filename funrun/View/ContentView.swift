@@ -8,46 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var runningTracker = RunningTracker()
-    @StateObject var walkingTracker = WalkingTracker()
-    @StateObject var hiitTracker = HIITTracker()
-    @State private var isShowingDetails = false
+    @StateObject var viewModel = ContentViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
-                WorkoutCardView(tracker: runningTracker, isShowing: $isShowingDetails)
-                WorkoutCardView(tracker: walkingTracker, isShowing: $isShowingDetails)
-                WorkoutCardView(tracker: hiitTracker, isShowing: $isShowingDetails)
+                WorkoutCardView(tracker: viewModel.runningTracker, isShowing: $viewModel.isShowingDetails)
+                WorkoutCardView(tracker: viewModel.walkingTracker, isShowing: $viewModel.isShowingDetails)
+                WorkoutCardView(tracker: viewModel.hiitTracker, isShowing: $viewModel.isShowingDetails)
             }
             .navigationTitle("Exercises")
             
-        }.sheet(isPresented: $isShowingDetails, onDismiss: didDismiss, content: {
+        }.sheet(isPresented: $viewModel.isShowingDetails, onDismiss: viewModel.didDismiss, content: {
             List {
-                if runningTracker.isTracking {
-                    WorkoutDetailView(tracker: runningTracker)
+                if viewModel.runningTracker.isTracking {
+                    WorkoutDetailView(tracker: viewModel.runningTracker)
                 }
-                if walkingTracker.isTracking {
-                    WorkoutDetailView(tracker: walkingTracker)
+                if viewModel.walkingTracker.isTracking {
+                    WorkoutDetailView(tracker: viewModel.walkingTracker)
                 }
-                if hiitTracker.isTracking {
-                    WorkoutDetailView(tracker: hiitTracker)
+                if viewModel.hiitTracker.isTracking {
+                    WorkoutDetailView(tracker: viewModel.hiitTracker)
                 }
             }
         })
     }
-    
-    func didDismiss(){
-        isShowingDetails = false
-        print("caller page processing dismiss")
-    }
 }
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
-#Preview {
+#Preview
+{
     ContentView()
 }
