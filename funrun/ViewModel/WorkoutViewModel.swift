@@ -15,16 +15,8 @@ class WorkoutViewModel: ObservableObject {
     @Published var durationCounter: DurationCounter = DurationCounter()
     private var timer: Timer?
     
-//    private var cancellables = Set<AnyCancellable>()
-    
     init(tracker: WorkoutTracker) {
         self.tracker = tracker
-        
-//        tracker.objectWillChange
-//            .sink { [weak self] _ in
-//                self?.objectWillChange.send()
-//            }
-//            .store(in: &cancellables)
     }
     
     func startTracking() {
