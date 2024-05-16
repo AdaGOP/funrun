@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class WorkoutCardViewModel: ObservableObject {
+class WorkoutViewModel: ObservableObject {
     @Published var tracker: WorkoutTracker
     var title: String
     var sfSymbolImage: String

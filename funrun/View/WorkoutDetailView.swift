@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WorkoutDetailView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: WorkoutDetailViewModel
+    @StateObject var viewModel: WorkoutViewModel
     @State var isAnimating: Bool = false
     
     var body: some View {
@@ -69,6 +69,6 @@ struct WorkoutDetailView: View {
 struct WorkoutDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let hiitTracker = HIITTracker()
-        WorkoutDetailView(viewModel: WorkoutDetailViewModel(tracker: hiitTracker, title: "HIIT", sfSymbolImage: "figure.highintensity.intervaltraining"))
+        WorkoutDetailView(viewModel: WorkoutViewModel(tracker: hiitTracker, title: "HIIT", sfSymbolImage: "figure.highintensity.intervaltraining"))
     }
 }

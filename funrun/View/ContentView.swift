@@ -14,7 +14,7 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 WorkoutCardView(viewModel: viewModel.runningTracker, isShowing: $viewModel.isShowingDetails)
-                WorkoutCardView(viewModel:  viewModel.walkingTracker, isShowing: $viewModel.isShowingDetails)
+                WorkoutCardView(viewModel: viewModel.walkingTracker, isShowing: $viewModel.isShowingDetails)
                 WorkoutCardView(viewModel: viewModel.hiitTracker, isShowing: $viewModel.isShowingDetails)
             }
             .navigationTitle("Exercises")
@@ -22,13 +22,13 @@ struct ContentView: View {
         }.sheet(isPresented: $viewModel.isShowingDetails, onDismiss: viewModel.didDismiss, content: {
             List {
                 if viewModel.runningTracker.tracker.isTracking {
-                    WorkoutDetailView(viewModel: WorkoutDetailViewModel(tracker: viewModel.runningTracker.tracker, title: viewModel.runningTracker.title, sfSymbolImage: viewModel.runningTracker.sfSymbolImage))
+                    WorkoutDetailView(viewModel: viewModel.runningTracker)
                 }
                 if viewModel.walkingTracker.tracker.isTracking {
-                    WorkoutDetailView(viewModel: WorkoutDetailViewModel(tracker: viewModel.walkingTracker.tracker, title: viewModel.walkingTracker.title, sfSymbolImage: viewModel.walkingTracker.sfSymbolImage))
+                    WorkoutDetailView(viewModel: viewModel.walkingTracker)
                 }
                 if viewModel.hiitTracker.tracker.isTracking {
-                    WorkoutDetailView(viewModel: WorkoutDetailViewModel(tracker: viewModel.hiitTracker.tracker, title: viewModel.hiitTracker.title, sfSymbolImage: viewModel.hiitTracker.sfSymbolImage))
+                    WorkoutDetailView(viewModel: viewModel.hiitTracker)
                 }
             }
         })

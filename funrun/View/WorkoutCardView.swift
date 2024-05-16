@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WorkoutCardView: View {
-    @ObservedObject var viewModel: WorkoutCardViewModel
+    @StateObject var viewModel: WorkoutViewModel
     @Binding var isShowing: Bool
     
     var body: some View {
@@ -56,6 +56,6 @@ struct WorkoutCardView: View {
 struct WorkoutCardView_Previews: PreviewProvider {
     static var previews: some View {
         let hiitTracker = HIITTracker()
-        return WorkoutCardView(viewModel: WorkoutCardViewModel(tracker: hiitTracker, title: "HIIT", sfSymbolImage: "figure.highintensity.intervaltraining"), isShowing: .constant(false))
+        return WorkoutCardView(viewModel: WorkoutViewModel(tracker: hiitTracker, title: "HIIT", sfSymbolImage: "figure.highintensity.intervaltraining"), isShowing: .constant(false))
     }
 }
