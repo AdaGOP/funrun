@@ -8,9 +8,9 @@
 import Foundation
 
 class ContentViewModel: ObservableObject {
-    @Published var runningTracker = RunningTracker()
-    @Published var walkingTracker = WalkingTracker()
-    @Published var hiitTracker = HIITTracker()
+    @Published var runningTracker = WorkoutCardViewModel(tracker: RunningTracker())
+    @Published var walkingTracker = WorkoutCardViewModel(tracker: WalkingTracker())
+    @Published var hiitTracker = WorkoutCardViewModel(tracker: HIITTracker())
     @Published var isShowingDetails = false
     
     func didDismiss() {

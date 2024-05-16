@@ -6,3 +6,24 @@
 //
 
 import Foundation
+import Combine
+
+class WorkoutDetailViewModel: ObservableObject {
+    @Published var tracker: WorkoutTracker
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    init(tracker: WorkoutTracker) {
+        self.tracker = tracker
+        
+        tracker.objectWillChange
+            .sink { [weak self] _ in
+                self?.objectWillChange.send()
+            }
+            .store(in: &cancellables)
+    }
+    
+    func toggleTracking() {
+        tracker.toggleTracking()
+    }
+}

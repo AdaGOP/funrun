@@ -53,9 +53,9 @@ struct WorkoutCardView: View {
     }
 }
 
-//struct WorkoutCardView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let runningTracker = RunningTracker()
-//        return WorkoutCardView(tracker: runningTracker, isShowing: .constant(false))
-//    }
-//}
+struct WorkoutCardView_Previews: PreviewProvider {
+    static var previews: some View {
+        let runningTracker = RunningTracker()
+        return WorkoutCardView(viewModel: WorkoutCardViewModel(tracker: runningTracker), isShowing: .constant(false))
+    }
+}
