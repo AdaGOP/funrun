@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+class ContentViewModel: ObservableObject {
+    @Published var runningTracker = RunningTracker()
+    @Published var walkingTracker = WalkingTracker()
+    @Published var hiitTracker = HIITTracker()
+    @Published var isShowingDetails = false
+    
+    func didDismiss() {
+        isShowingDetails = false
+        print("caller page processing dismiss")
+    }
+}
