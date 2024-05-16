@@ -7,24 +7,29 @@
 
 import Foundation
 
-protocol WorkoutTracker {
-    var title: String { get set }
-    var sfSymbolImage: String { get set }
-    func startTracking()
-    func stopTracking()
-}
+//protocol WorkoutTracker {
+//    var title: String { get set }
+//    var sfSymbolImage: String { get set }
+//    func startTracking()
+//    func stopTracking()
+//}
+//
+//protocol DistanceTrackable: WorkoutTracker {
+//    var distanceInKm: Double { get set }
+//    func addDistance(by value: Double)
+//}
+//
+//protocol HIITTrackable: WorkoutTracker {
+//    var movementSet: [String: Int] { get set }
+//    func addMovementSet(by value: Int)
+//}
 
-protocol DistanceTrackable: WorkoutTracker {
-    var distanceInKm: Double { get set }
-    func addDistance(by value: Double)
-}
-
-protocol HIITTrackable: WorkoutTracker {
-    var movementSet: [String: Int] { get set }
-    func addMovementSet(by value: Int)
-}
-
-class RunningTracker: DistanceTrackable, ObservableObject {
+class RunningTracker: ObservableObject {
+    @Published var isTracking: Bool = false
+    @Published var isAnimating = false
+    @Published var durationCounter: DurationCounter = DurationCounter()
+    private var timer: Timer?
+    
     var title: String
     
     var sfSymbolImage: String
@@ -38,45 +43,47 @@ class RunningTracker: DistanceTrackable, ObservableObject {
     }
     
     func startTracking() {
-        //specific logic for the startTracking event
+        isTracking = true
+        startTimer()
     }
     
     func stopTracking() {
-        //specific logic for the stopTracking event
+        isTracking = false
+        stopTimer()
     }
     
     func addDistance(by value: Double){
         distanceInKm += value
     }
     
-}
-
-class WalkingTracker: DistanceTrackable {
-    var title: String
-    
-    var sfSymbolImage: String
-    
-    var distanceInKm: Double = 0.0
-    init(title: String, sfSymbolImage: String, distanceInKm: Double) {
-        self.title = title
-        self.sfSymbolImage = sfSymbolImage
-        self.distanceInKm = distanceInKm
+    private func startTimer() {
+        durationCounter.startTime = Date()
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            self.durationCounter.update()
+        }
     }
     
-    func startTracking() {
-        //specific logic for the startTracking event
+    private func stopTimer() {
+        self.timer?.invalidate()
+        self.timer = nil
+        durationCounter.startTime = nil
     }
     
-    func stopTracking() {
-        //specific logic for the stopTracking event
-    }
-    
-    func addDistance(by value: Double){
-        distanceInKm += value
+    func toggleTracking() {
+        if isTracking {
+            stopTracking()
+        } else {
+            startTracking()
+        }
     }
 }
 
-class HIITTracker: HIITTrackable {
+class HIITTracker: ObservableObject {
+    @Published var isTracking: Bool = false
+    @Published var isAnimating = false
+    @Published var durationCounter: DurationCounter = DurationCounter()
+    private var timer: Timer?
+    
     var title: String
     
     var sfSymbolImage: String
@@ -90,16 +97,39 @@ class HIITTracker: HIITTrackable {
     }
     
     func startTracking() {
-        //specific logic for the startTracking event
+        isTracking = true
+        startTimer()
     }
     
     func stopTracking() {
-        //specific logic for the stopTracking event
+        isTracking = false
+        stopTimer()
     }
     
     func addMovementSet(by value: Int) {
         movementSet["Jumping-Jack"]! += value
         movementSet["Sit-Up"]! += value
         movementSet["Push-Up"]! += value
+    }
+    
+    private func startTimer() {
+        durationCounter.startTime = Date()
+        self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            self.durationCounter.update()
+        }
+    }
+    
+    private func stopTimer() {
+        self.timer?.invalidate()
+        self.timer = nil
+        durationCounter.startTime = nil
+    }
+    
+    func toggleTracking() {
+        if isTracking {
+            stopTracking()
+        } else {
+            startTracking()
+        }
     }
 }

@@ -1,46 +1,48 @@
 //
-//  WorkoutDetailView.swift
+//  HiitDetailView.swift
 //  funrun
 //
-//  Created by David Gunawan on 13/05/24.
+//  Created by Haryanto Salim on 16/05/24.
 //
 
 import SwiftUI
 
-struct WorkoutDetailView: View {
+struct HiitDetailView: View {
     @Environment(\.dismiss) private var dismiss
-    @ObservedObject var viewModel: WorkoutViewModel
+    @ObservedObject var hiitModel: HIITTracker
     @State var isAnimating: Bool = false
     
     var body: some View {
         VStack {
-            Text(viewModel.tracker.title)
+            Text(hiitModel.title)
                 .font(.title)
             Group {
                 HStack {
                     VStack {
                         if #available(iOS 17.0, *) {
-                            Image(systemName: viewModel.isTracking ? "stopwatch" : "stopwatch.fill")
+                            Image(systemName: hiitModel.isTracking ? "stopwatch" : "stopwatch.fill")
                                 .resizable()
-                                .symbolEffect(.pulse, options: .repeating, value: viewModel.isAnimating)
+                                .symbolEffect(.pulse, options: .repeating, value: hiitModel.isAnimating)
                                 .scaledToFit()
                                 .frame(width: 100, height: 100)
                                 .padding()
                         } else {
                             // Fallback on earlier versions
                         }
-                        Text(viewModel.durationCounter.elapsedTime)
+                        Text(hiitModel.durationCounter.elapsedTime)
                             .font(.title3)
                     }
                     VStack(alignment: .leading) {
-                        viewModel.customDistanceTrackableView()
-                        viewModel.customHiitTrackableView()
+                        //display specific view based on the provided data owned by the hiit model
+                        ForEach(hiitModel.movementSet.keys.sorted(), id: \.self) { movementKey in
+                            Text("\(MovementMetric(movement: movementKey, numOfSet: hiitModel.movementSet[movementKey] ?? 0, unit: "set"))")
+                        }
                         
                         Button(action: {
-                            viewModel.toggleTracking()
+                            hiitModel.toggleTracking()
                             dismiss()
                         }) {
-                            Text(viewModel.isTracking ? "Stop Tracking" : "Start Tracking")
+                            Text(hiitModel.isTracking ? "Stop Tracking" : "Start Tracking")
                                 .font(.headline)
                                 .padding()
                                 .background(Color.red)
@@ -51,18 +53,12 @@ struct WorkoutDetailView: View {
                 }
             }
             .onAppear {
-                viewModel.isAnimating.toggle()
+                hiitModel.isAnimating.toggle()
             }
             .onDisappear {
-                viewModel.isAnimating.toggle()
+                hiitModel.isAnimating.toggle()
             }
         }
     }
 }
 
-//struct WorkoutDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        let hiitTracker = HIITTracker()
-//        WorkoutDetailView(viewModel: WorkoutDetailViewModel(tracker: hiitTracker, title: "HIIT", sfSymbolImage: "figure.highintensity.intervaltraining"))
-//    }
-//}
