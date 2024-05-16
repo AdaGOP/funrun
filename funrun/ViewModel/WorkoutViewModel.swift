@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class WorkoutViewModel: ObservableObject {
-    @Published var tracker: WorkoutTracker
+    var tracker: WorkoutTracker
     var title: String
     var sfSymbolImage: String
     
