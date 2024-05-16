@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Combine
 
 class WorkoutTracker: ObservableObject {
     @Published var isTracking: Bool = false

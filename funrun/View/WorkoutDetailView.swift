@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WorkoutDetailView: View {
     @Environment(\.dismiss) private var dismiss
-    @StateObject var viewModel: WorkoutDetailViewModel
+    @ObservedObject var viewModel: WorkoutDetailViewModel
     @State var isAnimating: Bool = false
     
     var body: some View {
