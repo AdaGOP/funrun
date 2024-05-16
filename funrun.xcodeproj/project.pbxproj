@@ -17,6 +17,7 @@
 		466E9C702BF1B48900533577 /* WorkoutTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E9C6F2BF1B48900533577 /* WorkoutTracker.swift */; };
 		466E9C722BF1CC0300533577 /* CardBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E9C712BF1CC0300533577 /* CardBackground.swift */; };
 		46C979132BF5B72F00A50E6F /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C979122BF5B72F00A50E6F /* ContentViewModel.swift */; };
+		46C979172BF5BF1100A50E6F /* WorkoutCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C979162BF5BF1100A50E6F /* WorkoutCardViewModel.swift */; };
 		46D194BE2BF46165003D082D /* Metrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D194BD2BF46165003D082D /* Metrics.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,7 @@
 		466E9C6F2BF1B48900533577 /* WorkoutTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTracker.swift; sourceTree = "<group>"; };
 		466E9C712BF1CC0300533577 /* CardBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBackground.swift; sourceTree = "<group>"; };
 		46C979122BF5B72F00A50E6F /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		46C979162BF5BF1100A50E6F /* WorkoutCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCardViewModel.swift; sourceTree = "<group>"; };
 		46D194BD2BF46165003D082D /* Metrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metrics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				46C979122BF5B72F00A50E6F /* ContentViewModel.swift */,
+				46C979162BF5BF1100A50E6F /* WorkoutCardViewModel.swift */,
 				46D194BA2BF45867003D082D /* Model */,
 				466E9C752BF2108F00533577 /* View */,
 				466E9C732BF2103000533577 /* Helper */,
@@ -184,6 +187,7 @@
 			files = (
 				466E9C6A2BF1B23900533577 /* WorkoutCardView.swift in Sources */,
 				466E9C722BF1CC0300533577 /* CardBackground.swift in Sources */,
+				46C979172BF5BF1100A50E6F /* WorkoutCardViewModel.swift in Sources */,
 				466E9C6C2BF1B45400533577 /* WorkoutDetailView.swift in Sources */,
 				466E9C5C2BF1B1BA00533577 /* ContentView.swift in Sources */,
 				466E9C5A2BF1B1BA00533577 /* funrunApp.swift in Sources */,

@@ -8,42 +8,43 @@
 import SwiftUI
 
 struct WorkoutCardView: View {
-    @ObservedObject var tracker: WorkoutTracker
+    @ObservedObject var viewModel: WorkoutCardViewModel
     @Binding var isShowing: Bool
     
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: tracker.sfSymbolImage)
+                Image(systemName: viewModel.tracker.sfSymbolImage)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 50, height: 100)
                     .padding()
                 
                 if #available(iOS 17.0, *) {
-                    Image(systemName: tracker.isTracking ? "stopwatch" : "stopwatch.fill")
-                        .symbolEffect(.pulse, options: tracker.isTracking ? .repeating : .nonRepeating, value: tracker.isTracking)
+                    Image(systemName: viewModel.tracker.isTracking ? "stopwatch" : "stopwatch.fill")
+                        .symbolEffect(.pulse, options: viewModel.tracker.isTracking ? .repeating : .nonRepeating, value: viewModel.tracker.isTracking)
                         .font(.title)
                         .padding()
                 } else {
+                    // Fallback on earlier versions
                 }
                 
                 Button(action: {
-                    tracker.toggleTracking()
-                    if tracker.isTracking {
+                    viewModel.toggleTracking()
+                    if viewModel.tracker.isTracking {
                         isShowing = true
                     }
                 }) {
-                    Text(tracker.isTracking ? "Stop \(tracker.title)" : "Start \(tracker.title)")
+                    Text(viewModel.tracker.isTracking ? "Stop \(viewModel.tracker.title)" : "Start \(viewModel.tracker.title)")
                         .frame(width: 140)
                         .font(.headline)
                         .padding()
-                        .background(tracker.isTracking ? Color.red : Color.green)
+                        .background(viewModel.tracker.isTracking ? Color.red : Color.green)
                         .foregroundColor(.white)
                         .cornerRadius(10)
                 }
             }
-            Text(tracker.durationCounter.elapsedTime)
+            Text(viewModel.tracker.durationCounter.elapsedTime)
                 .font(.title3)
         }
         .padding(.horizontal, 10)
@@ -52,9 +53,9 @@ struct WorkoutCardView: View {
     }
 }
 
-struct WorkoutCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        let runningTracker = RunningTracker()
-        return WorkoutCardView(tracker: runningTracker, isShowing: .constant(false))
-    }
-}
+//struct WorkoutCardView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let runningTracker = RunningTracker()
+//        return WorkoutCardView(tracker: runningTracker, isShowing: .constant(false))
+//    }
+//}
