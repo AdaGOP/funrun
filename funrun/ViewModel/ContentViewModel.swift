@@ -8,9 +8,9 @@
 import Foundation
 
 class ContentViewModel: ObservableObject {
-    @Published var runningTracker: WorkoutViewModel
-    @Published var walkingTracker: WorkoutViewModel
-    @Published var hiitTracker: WorkoutViewModel
+    var runningTracker: WorkoutViewModel
+    var walkingTracker: WorkoutViewModel
+    var hiitTracker: WorkoutViewModel
     
     @Published var isShowingDetails = false
     

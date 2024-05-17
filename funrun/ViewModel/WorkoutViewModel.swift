@@ -10,10 +10,9 @@ import Foundation
 class WorkoutViewModel: ObservableObject {
     @Published var isTracking: Bool = false
     @Published var durationCounter: DurationCounter = DurationCounter()
+    private var timer: Timer?
     
     var tracker: WorkoutTracker
-    
-    private var timer: Timer?
     
     init(tracker: WorkoutTracker) {
         self.tracker = tracker
